@@ -70,7 +70,10 @@ int main()
             float threshold;
             cin >> threshold;
 
-
+            // call gethighertemp
+            vector<float> hightemp = gethighertemperature(threshold);
+            for (int j = 0; j < hightemp.size(); j++)
+                cout << hightemp[j] << endl;
         }
         else {
             break;
