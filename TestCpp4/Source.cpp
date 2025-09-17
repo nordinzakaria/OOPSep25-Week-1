@@ -1,7 +1,8 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-// declare a global array
+// declare global variables
 float temperature[10];
 
 float calcAverage()
@@ -14,6 +15,20 @@ float calcAverage()
 
     return avg;
 }
+
+vector<float> gethighertemperature(float threshold)
+{
+    vector<float> results;
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (temperature[i] > threshold)
+            results.push_back(temperature[i]);
+    }
+
+    return results;
+}
+
 
 int main()
 {
@@ -28,7 +43,9 @@ int main()
         cout << "1) Calculate min and max" << endl;
         cout << "2) Calculate avg" << endl;
         cout << "3) Re-read data" << endl;
-        cout << "4) Exit" << endl;
+        cout << "4) Get temp higher than threshold" << endl;
+
+        cout << "5) Exit" << endl;
 
         int option;
         cin >> option;
@@ -47,6 +64,13 @@ int main()
         }
         else if (option == 3) {
             // read data again
+        }
+        else if (option == 4) {
+            cout << "Enter threshold" << endl;
+            float threshold;
+            cin >> threshold;
+
+
         }
         else {
             break;
