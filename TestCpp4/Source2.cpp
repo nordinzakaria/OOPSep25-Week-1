@@ -2,13 +2,11 @@
 #include <vector>
 using namespace std;
 
-#include "SensoryReading.h"
-
 class SensorData // to group together global + functions
 {
     public:
 
-    SensoryReading temperature[10]; 
+    float temperature[10]; // 2 locations
 
     float calcAverage()
     {
