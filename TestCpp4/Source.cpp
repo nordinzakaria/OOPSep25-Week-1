@@ -2,19 +2,19 @@
 #include <vector>
 using namespace std;
 
-#include "SensoryReading.h"
+#include "SensorReading.h"
 
 class SensorData // to group together global + functions
 {
     public:
 
-    SensoryReading temperature[10]; 
+    SensorReading temperature[10]; 
 
     float calcAverage()
     {
         float avg = 0;
         for (int i = 0; i < 10; i++) {
-            avg += temperature[i];
+            avg += temperature[i].val;
         }
         avg /= 10;
 
@@ -27,12 +27,22 @@ class SensorData // to group together global + functions
 
         for (int i = 0; i < 10; i++)
         {
-            if (temperature[i] > threshold)
-                results.push_back(temperature[i]);
+            if (temperature[i].val > threshold)
+                results.push_back(temperature[i].val);
         }
 
         return results;
     }
+
+    void read() 
+    {
+        cout << "Enter 10 temperature data";
+        for (int i = 0; i < 10; i++)
+        {
+            cin >> temperature[i].val >> temperature[i].time;
+        }
+    }
+
 };
 
 int main()
@@ -41,15 +51,11 @@ int main()
     SensorData kitchen;
     SensorData room;
 
+    kitchen.read();
+    room.read();
 
-    cout << "Enter 10 temperature data";
-    for (int i = 0; i < 10; i++)
-    {
-        cin >> kitchen.temperature[i];
-    }
-
-    
-
+    float result = kitchen.calcAverage();
+    cout << "average is " << result;
 
     return 0;
 }

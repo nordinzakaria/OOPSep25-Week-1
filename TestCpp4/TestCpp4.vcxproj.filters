@@ -18,12 +18,12 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SensoryReading.cpp">
+    <ClCompile Include="SensorReading.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SensoryReading.h">
+    <ClInclude Include="SensorReading.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
